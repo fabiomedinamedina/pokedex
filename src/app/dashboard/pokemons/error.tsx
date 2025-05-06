@@ -23,7 +23,7 @@ export default function Error({ error, reset }: {
       <div className="flex flex-col items-center justify-center">
         <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-600 mt-2">Error de servidor</p>
         <p className="md:text-lg xl:text-xl text-gray-500">Oooops! han ocurrido errores en el servidor.</p>
-        <p className="text-sm text-gray-500">"{error.message}"</p>
+        <p className="text-sm text-gray-500">&quot;{error.message}&quot;</p>
       </div>
     </div>
   )

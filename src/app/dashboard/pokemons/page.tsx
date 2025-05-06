@@ -11,14 +11,13 @@ const getPokemons = async (limit = 20, offset = 0): Promise<SimplePokemon[]> => 
   }));
 
   // throw new Error("No se pudo establecer conexión con la API");
-  
 
   return pokemons;
 }
 
 export default async function PokemonsPage() {
 
-  const pokemons = await getPokemons( 100 );
+  const pokemons = await getPokemons(100);
 
   return (
     <div className="p-4 pb-6">

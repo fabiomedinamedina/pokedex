@@ -1,8 +1,6 @@
-import Image from 'next/image';
-
 import { PokemonCard, SimplePokemon } from '..';
 
-interface Props{
+interface Props {
   pokemons: SimplePokemon[];
 }
 
