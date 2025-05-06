@@ -18,12 +18,100 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+.pokemon-normal   { @apply bg-normal/50; }
+.pokemon-fire     { @apply bg-fire/50; }
+.pokemon-water    { @apply bg-water/50; }
+.pokemon-electric { @apply bg-electric/50; }
+.pokemon-grass    { @apply bg-grass/50; }
+.pokemon-ice      { @apply bg-ice/50; }
+.pokemon-fighting { @apply bg-fighting/50; }
+.pokemon-poison   { @apply bg-poison/50; }
+.pokemon-ground   { @apply bg-ground/50; }
+.pokemon-flying   { @apply bg-flying/50; }
+.pokemon-psychic  { @apply bg-psychic/50; }
+.pokemon-bug      { @apply bg-bug/50; }
+.pokemon-rock     { @apply bg-rock/50; }
+.pokemon-ghost    { @apply bg-ghost/50; }
+.pokemon-dragon   { @apply bg-dragon/50; }
+.pokemon-dark     { @apply bg-dark/50; }
+.pokemon-steel    { @apply bg-steel/50; }
+.pokemon-fairy    { @apply bg-fairy/50; }
+
+.type-grass {
+  @apply bg-grass/50 text-grass-dark ring-grass-dark;
+}
+
+.type-ice {
+  @apply bg-ice/50 text-ice-dark ring-ice-dark;
+}
+
+.type-fighting {
+  @apply bg-fighting/50 text-fighting-dark ring-fighting-dark;
+}
+
+.type-poison {
+  @apply bg-poison/50 text-poison-dark ring-poison-dark;
+}
+
+.type-ground {
+  @apply bg-ground/50 text-ground-dark ring-ground-dark;
+}
+
+.type-flying {
+  @apply bg-flying/50 text-flying-dark ring-flying-dark;
+}
+
+.type-psychic {
+  @apply bg-psychic/50 text-psychic-dark ring-psychic-dark;
+}
+
+.type-bug {
+  @apply bg-bug/50 text-bug-dark ring-bug-dark;
+}
+
+.type-rock {
+  @apply bg-rock/50 text-rock-dark ring-rock-dark;
+}
+
+.type-ghost {
+  @apply bg-ghost/50 text-ghost-dark ring-ghost-dark;
+}
+
+.type-dragon {
+  @apply bg-dragon/50 text-dragon-dark ring-dragon-dark;
+}
+
+.type-dark {
+  @apply bg-dark/50 text-dark-dark ring-dark-dark;
+}
+
+.type-steel {
+  @apply bg-steel/50 text-steel-dark ring-steel-dark;
+}
+
+.type-fairy {
+  @apply bg-fairy/50 text-fairy-dark ring-fairy-dark;
+}
+
+.type-fire {
+  @apply bg-fire/50 text-fire-dark ring-fire-dark;
+}
+
+.type-water {
+  @apply bg-water/50 text-water-dark ring-water-dark;
+}
+
+.type-electric {
+  @apply bg-electric/50 text-electric-dark ring-electric-dark;
+}
+
+.type-normal {
+  @apply bg-normal/50 text-normal-dark ring-normal-dark;
 }
 
 @layer utilities {
@@ -31,3 +119,5 @@ body {
     text-wrap: balance;
   }
 }
+
+
