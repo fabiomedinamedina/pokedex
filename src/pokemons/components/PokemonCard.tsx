@@ -18,11 +18,13 @@ export const PokemonCard = ({ pokemon }: Props) => {
         </div>
         <div className="absolute -bottom-12 flex h-[140px] w-[140px] items-center justify-center">
           <Image
-            alt="Imagen"
+            alt={`Imagen de Pokemon ${name}`}
             width={140}
             height={140}
             className="h-full w-full"
             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`}
+            priority={id <= 10}
+            loading={id <= 10 ? 'eager' : 'lazy'}
           />
         </div>
       </div>
