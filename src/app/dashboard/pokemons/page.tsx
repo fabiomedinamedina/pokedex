@@ -1,21 +1,22 @@
-import { PokemonGrid, PokemonsResponse, SimplePokemon } from "@/pokemons";
+import { PokemonGrid, PokemonsResponse, SimplePokemon, Pokemon } from "@/pokemons";
 
-const getPokemons = async (limit = 20, offset = 0): Promise<SimplePokemon[]> => {
+const getPokemons = async (limit = 20, offset = 0): Promise<Pokemon[]> => {
   const data: PokemonsResponse = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`)
     .then(response => response.json());
-  const pokemons: SimplePokemon[] = data.results.map(pokemon => ({
-    id: pokemon.url.split('/').at(-2)!,
-    name: pokemon.name
-  }));
 
-  // throw new Error("No se pudo establecer conexión con la API");
+  const pokemonPromises = data.results.map(pokemon => {
+    const id = parseInt(pokemon.url.split('/').at(-2)!);
+    return fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
+      next: { revalidate: 60 * 60 * 30 * 6 }
+    }).then(res => res.json());
+  });
 
+  const pokemons = await Promise.all(pokemonPromises);
   return pokemons;
 }
 
 export default async function PokemonsPage() {
-
-  const pokemons = await getPokemons(100);
+  const pokemons = await getPokemons(151);
 
   return (
     <div className="px-12 py-6">

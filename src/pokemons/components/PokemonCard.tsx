@@ -1,33 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
-
-import { Pokemon, SimplePokemon } from '..';
-
+import { Pokemon } from '..';
 import { CgEye, CgHeart } from 'react-icons/cg';
 
 interface Props {
-  pokemon: SimplePokemon;
+  pokemon: Pokemon;
 }
 
-const getPokemon = async (id: string): Promise<Pokemon> => {
-
-  try {
-    const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
-      next: { revalidate: 60 * 60 * 30 * 6 }
-    }).then(res => res.json());
-
-    return pokemon;
-  } catch (error) {
-    throw new Error('Error fetching Pokemon data');
-  }
-}
-
-export const PokemonCard = async ({ pokemon }: Props) => {
-
-  const { id, name } = pokemon;
-  const { types } = await getPokemon(id);
+export const PokemonCard = ({ pokemon }: Props) => {
+  const { id, name, types } = pokemon;
   const bgColorClass = `pokemon-${types[0].type.name}`;
-
 
   return (
     <div className="relative flex flex-col items-center rounded-[10px] border-[1px] border-gray-300 w-full mx-auto p-3 bg-white bg-clip-border shadow-v shadow-gray-300">
@@ -51,7 +33,6 @@ export const PokemonCard = async ({ pokemon }: Props) => {
         <div className="flex flex-row gap-1 items-center justify-center">
           {
             types.map((type, index) => (
-
               <span key={index} className={`inline-flex items-center rounded-md px-2 py-1 text-sm font-medium ring-1 ring-inset capitalize type-${type.type.name}`}>
                 <svg className='w-6 h-6 bg-red text-red'>
                   <use xlinkHref={`/icons-types-color.svg#${type.type.name}`} />
@@ -64,7 +45,7 @@ export const PokemonCard = async ({ pokemon }: Props) => {
       </div>
       <div className="flex flex-row w-full mt-3 px-3 gap-2 items-center justify-between">
         <div className="flex flex-col items-center justify-center">
-          <p className="text-xs font-normal text-gray-400">#{id.padStart(4, '0')}</p>
+          <p className="text-xs font-normal text-gray-400">#{id.toString().padStart(4, '0')}</p>
         </div>
         <div className="flex flex-row gap-1 items-center justify-center">
           <Link href="#">
