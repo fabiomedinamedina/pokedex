@@ -27,7 +27,7 @@ const menuItems = [
 
 export const Sidebar = () => {
   return (
-    <div id="menu" className="w-[400px] bg-gradient-to-b from-red-normal to-red-dark min-h-screen z-10 text-white left-0 h-screen overflow-y-scroll">
+    <div id="menu" className="w-[400px] bg-gradient-to-b from-red-normal to-red-dark min-h-screen z-10 text-white left-0 h-screen overflow-y-auto">
       <div id="logo" className="my-4 px-6 pt-2">
         <Image
           alt='Logo Pokédex'
@@ -45,11 +45,11 @@ export const Sidebar = () => {
           </span>
         </a>
       </div>
-      
+
       <div id="nav" className="flex flex-col w-full px-6 gap-2">
         {
-          menuItems.map( item => (
-            <SidebarMenuItem key={ item.path } {...item} />
+          menuItems.map(item => (
+            <SidebarMenuItem key={item.path} {...item} />
           ))
         }
       </div>

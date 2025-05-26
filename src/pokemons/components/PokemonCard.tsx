@@ -47,7 +47,7 @@ export const PokemonCard = ({ pokemon }: Props) => {
       </div>
       <div className="flex flex-row w-full mt-3 px-3 gap-2 items-center justify-between">
         <div className="flex flex-col items-center justify-center">
-          <p className="text-xs font-normal text-gray-400">#{id.toString().padStart(4, '0')}</p>
+          <p className="text-xs font-normal text-gray-400">#{id.toString().padStart(3, '0')}</p>
         </div>
         <div className="flex flex-row gap-1 items-center justify-center">
           <Link href="#">
