@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import { Type } from '../../interfaces/pokemon';
+import { Type } from '@/pokemons/interfaces/pokemon';
 
 interface Props {
   id: number;

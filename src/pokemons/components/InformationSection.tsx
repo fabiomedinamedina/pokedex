@@ -1,5 +1,6 @@
-import { PokemonSpecies } from '../../interfaces/pokemon-species';
-import { Type } from '../../interfaces/pokemon';
+import { Type } from "@/pokemons/interfaces/pokemon";
+import { PokemonSpecies } from "@/pokemons/interfaces/pokemon-species";
+
 
 interface Props {
   species: PokemonSpecies;

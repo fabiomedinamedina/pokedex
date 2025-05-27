@@ -1,4 +1,4 @@
-import { Stat, Type } from '../../interfaces/pokemon';
+import { Stat, Type } from '@/pokemons/interfaces/pokemon';
 
 interface Props {
   stats: Stat[];
