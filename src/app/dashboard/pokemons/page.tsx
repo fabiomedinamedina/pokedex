@@ -1,5 +1,11 @@
 import { PokemonGrid, PokemonsResponse, Pokemon } from "@/pokemons";
 
+
+export const metadata = {
+  title: 'Mundo Pokémon | Pokédex [Curso NextJS - Fabio Medina]',
+  description: 'Accede a toda la información de cada Pokémon, de forma clara y sin complicaciones.',
+};
+
 const getPokemons = async (limit = 20, offset = 0): Promise<Pokemon[]> => {
   const data: PokemonsResponse = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`)
     .then(response => response.json());

@@ -1,29 +1,31 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { Pokemon, PokemonSpecies } from '@/pokemons';
+import { Pokemon, PokemonSpecies, PokemonsResponse } from '@/pokemons';
 import { HeroSection, PropertiesSection, StatsSection, InformationSection, MovesSection, AbilitiesSection, SpritesSection } from '@/pokemons';
 interface Props {
-  params: { id: string }
+  params: { name: string }
 }
 
 export async function generateStaticParams() {
 
-  const staticInitialPokemons = Array.from({ length: 151 }).map((v, i) => `${i + 1}`);
+  const data: PokemonsResponse = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=151`).then(res => res.json());
 
-  return staticInitialPokemons.map(id => ({ id }));
+  const staticInitialPokemons = data.results.map(pokemon => ({ name: pokemon.name }));
+
+  return staticInitialPokemons.map(({ name }) => ({ name }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const pokemon = await getPokemon(params.id);
+  const pokemon = await getPokemonByName(params.name);
   return {
     title: `Pokémon ${pokemon.name} | Pokédex [Curso NextJS - Fabio Medina]`,
   }
 }
 
-const getPokemon = async (id: string): Promise<Pokemon> => {
+const getPokemonByName = async (name: string): Promise<Pokemon> => {
   try {
-    const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
+    const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`, {
       cache: 'force-cache',
       // next: { revalidate: 60 * 60 * 30 * 6 }
     }).then(res => res.json());
@@ -34,9 +36,9 @@ const getPokemon = async (id: string): Promise<Pokemon> => {
   }
 }
 
-const getPokemonSpecies = async (id: string): Promise<PokemonSpecies> => {
+const getPokemonSpeciesByName = async (name: string): Promise<PokemonSpecies> => {
   try {
-    const species = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`, {
+    const species = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${name}`, {
       next: { revalidate: 60 * 60 * 30 * 6 }
     }).then(res => res.json());
 
@@ -47,8 +49,8 @@ const getPokemonSpecies = async (id: string): Promise<PokemonSpecies> => {
 }
 
 export default async function PokemonPage({ params }: Props) {
-  const { id, name, types, weight, height, base_experience, stats, moves, abilities, sprites } = await getPokemon(params.id);
-  const species = await getPokemonSpecies(params.id);
+  const { id, name, types, weight, height, base_experience, stats, moves, abilities, sprites } = await getPokemonByName(params.name);
+  const species = await getPokemonSpeciesByName(params.name);
 
   return (
     <div className='px-12 py-12'>

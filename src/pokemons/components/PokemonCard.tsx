@@ -53,7 +53,7 @@ export const PokemonCard = ({ pokemon }: Props) => {
           <Link href="#">
             <CgHeart size={20} className="text-gray-400 hover:text-red-normal transition ease-linear duration-200" />
           </Link>
-          <Link href={`/dashboard/pokemon/${id}`}>
+          <Link href={`/dashboard/pokemons/${name}`}>
             <CgEye size={20} className="text-gray-400 hover:text-yellow-normal transition ease-linear duration-200" />
           </Link>
         </div>
