@@ -1,8 +1,9 @@
 import Image from 'next/image';
-import { CgPokemon } from 'react-icons/cg';
+import { CgHeart, CgPokemon } from 'react-icons/cg';
 import { CiCalculator2, CiGrid41 } from 'react-icons/ci';
 
 import { SidebarMenuItem } from '@/components';
+import { IoHeartCircleOutline } from 'react-icons/io5';
 
 const menuItems = [
   {
@@ -22,6 +23,12 @@ const menuItems = [
     icon: <CgPokemon size={30} />,
     title: 'Pokédex',
     subTitle: 'Buscador de Pokémons'
+  },
+  {
+    path: '/dashboard/favorites',
+    icon: <IoHeartCircleOutline size={30} />,
+    title: 'Favoritos',
+    subTitle: 'Pokémons Favoritos'
   }
 ]
 
