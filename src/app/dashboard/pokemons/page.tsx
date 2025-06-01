@@ -1,3 +1,4 @@
+import { HeroTitleSection } from "@/components";
 import { PokemonGrid, PokemonsResponse, Pokemon } from "@/pokemons";
 
 
@@ -26,12 +27,11 @@ export default async function PokemonsPage() {
 
   return (
     <div className="px-12 py-6">
-      <div className="flex flex-col w-full justify-end items-start my-9 p-10 bg-[url(/bg-pokemon-page-alt.jpg)] rounded-lg bg-cover bg-no-repeat bg-center h-80">
-        <h1 className="text-7xl font-extrabold text-white drop-shadow-md">Mundo Pokémon</h1>
-        <p className="text-white text-xl drop-shadow-sm">
-          Accede a toda la información de cada Pokémon, de forma clara y sin complicaciones.
-        </p>
-      </div>
+      <HeroTitleSection
+        image="bg-pokemon-favorites.jpg"
+        title="Mundo Pokémon"
+        description="Accede a toda la información de cada Pokémon, de forma clara y sin complicaciones."
+      />
       <div className="flex flex-col">
         <PokemonGrid pokemons={pokemons} />
       </div>
