@@ -1,5 +1,6 @@
+
 import { HeroTitleSection } from "@/components";
-import { PokemonGrid, PokemonsResponse, Pokemon } from "@/pokemons";
+import { FavoritesPokemons } from "@/pokemons";
 
 
 export const metadata = {
@@ -7,7 +8,7 @@ export const metadata = {
   description: 'Accede a toda la información de cada Pokémon, de forma clara y sin complicaciones.',
 };
 
-export default async function FavoritesPokemonsPage() {
+export default function FavoritesPokemonsPage() {
 
   return (
     <div className="px-12 py-6">
@@ -17,7 +18,7 @@ export default async function FavoritesPokemonsPage() {
         description="Guarda y organiza los Pokémon que más te gustan. Crea tu equipo personal y accede rápidamente a tus compañeros preferidos."
       />
       <div className="flex flex-col">
-        <PokemonGrid pokemons={[]} />
+        <FavoritesPokemons />
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 //* Components
 export { PokemonGrid } from './components/card/PokemonGrid';
 export { PokemonCard } from './components/card/PokemonCard';
+export { FavoritesPokemons } from './components/card/FavoritesPokemons';
 export { AbilitiesSection } from './components/simplePokemon/AbilitiesSection';
 export { HeroSection } from './components/simplePokemon/HeroSection';
 export { InformationSection } from './components/simplePokemon/InformationSection';
