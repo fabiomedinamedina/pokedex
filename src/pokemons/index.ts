@@ -1,13 +1,13 @@
 //* Components
-export { PokemonGrid } from './components/PokemonGrid';
-export { PokemonCard } from './components/PokemonCard';
-export { AbilitiesSection } from './components/AbilitiesSection';
-export { HeroSection } from './components/HeroSection';
-export { InformationSection } from './components/InformationSection';
-export { MovesSection } from './components/MovesSection';
-export { PropertiesSection } from './components/PropertiesSection';
-export { StatsSection } from './components/StatsSection';
-export { SpritesSection } from './components/SpritesSection';
+export { PokemonGrid } from './components/card/PokemonGrid';
+export { PokemonCard } from './components/card/PokemonCard';
+export { AbilitiesSection } from './components/simplePokemon/AbilitiesSection';
+export { HeroSection } from './components/simplePokemon/HeroSection';
+export { InformationSection } from './components/simplePokemon/InformationSection';
+export { MovesSection } from './components/simplePokemon/MovesSection';
+export { PropertiesSection } from './components/simplePokemon/PropertiesSection';
+export { StatsSection } from './components/simplePokemon/StatsSection';
+export { SpritesSection } from './components/simplePokemon/SpritesSection';
 
 
 

@@ -1,4 +1,4 @@
-export { Sidebar } from './Sidebar';
-export { SidebarMenuItem } from './SidebarMenuItem';
-export { HeroTitleSection } from './HeroTitleSection';
-export { SimpleWidget } from './SimpleWidget';
+export { Sidebar } from './sidebar/Sidebar';
+export { SidebarMenuItem } from './sidebar/SidebarMenuItem';
+export { HeroTitleSection } from './general/HeroTitleSection';
+export { SimpleWidget } from './dashboard/SimpleWidget';

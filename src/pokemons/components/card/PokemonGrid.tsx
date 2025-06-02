@@ -1,4 +1,4 @@
-import { PokemonCard, Pokemon } from '..';
+import { PokemonCard, Pokemon } from '../..';
 
 interface Props {
   pokemons: Pokemon[];
