@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Prompt } from "next/font/google";
 import "./globals.css";
+import { Providers } from "@/store/providers";
 
 const prompt = Prompt({
   weight: ["400", "500", "600", "700", "800"],
@@ -19,7 +20,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={prompt.className}>{children}</body>
+      <body className={prompt.className}>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
     </html>
   );
 }

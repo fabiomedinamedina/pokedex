@@ -2,7 +2,7 @@ import { CartCounter } from "@/shopping-cart";
 
 
 export const metadata = {
-  title: 'Shopping Cart',
+  title: 'Shopping Cart | Pokédex [Curso NextJS - Fabio Medina]',
   description: 'Counter Shopping Cart',
 };
 

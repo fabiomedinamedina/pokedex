@@ -2,6 +2,12 @@ import { SimpleWidget } from "@/components";
 import Image from "next/image";
 import { CiCalculator2 } from "react-icons/ci";
 
+
+export const metadata = {
+  title: 'Dashboard | Pokédex [Curso NextJS - Fabio Medina]',
+  description: 'Dashboard Pokédex donde se encuentran las estadísticas states del gestor de estado',
+};
+
 export default function MainPage() {
   return (
     <div className="flex flex-col w-full h-full p-10">
