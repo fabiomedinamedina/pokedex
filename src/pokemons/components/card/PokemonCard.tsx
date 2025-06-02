@@ -1,7 +1,12 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Pokemon } from '../..';
-import { CgEye, CgHeart } from 'react-icons/cg';
+import { CgEye } from 'react-icons/cg';
+import { PiHeart, PiHeartFill } from 'react-icons/pi';
+import { useAppDispatch, useAppSelector } from '@/store';
+import { toggleFavorite } from '@/store/pokemons/pokemonsSlice';
 
 interface Props {
   pokemon: Pokemon;
@@ -10,6 +15,13 @@ interface Props {
 export const PokemonCard = ({ pokemon }: Props) => {
   const { id, name, types } = pokemon;
   const bgColorClass = `pokemon-${types[0].type.name}`;
+
+  const isFavorite = useAppSelector(state => !!state.pokemons[id]);
+  const dispatch = useAppDispatch()
+
+  const handleToggleFavorite = () => {
+    dispatch(toggleFavorite({ id, name }))
+  }
 
   return (
     <div className="relative flex flex-col items-center rounded-[10px] border-[1px] border-gray-300 w-full mx-auto p-3 bg-white bg-clip-border shadow-v shadow-gray-300">
@@ -50,9 +62,13 @@ export const PokemonCard = ({ pokemon }: Props) => {
           <p className="text-xs font-normal text-gray-400">#{id.toString().padStart(3, '0')}</p>
         </div>
         <div className="flex flex-row gap-1 items-center justify-center">
-          <Link href="#">
-            <CgHeart size={20} className="text-gray-400 hover:text-red-normal transition ease-linear duration-200" />
-          </Link>
+          <div className='cursor-pointer' onClick={handleToggleFavorite}>
+            {
+              isFavorite
+                ? (<PiHeartFill size={20} className="text-red-normal hover:text-red-normal transition ease-linear duration-200" />)
+                : (<PiHeart size={20} className="text-gray-400 hover:text-red-normal transition ease-linear duration-200" />)
+            }
+          </div>
           <Link href={`/dashboard/pokemons/${name}`}>
             <CgEye size={20} className="text-gray-400 hover:text-yellow-normal transition ease-linear duration-200" />
           </Link>
