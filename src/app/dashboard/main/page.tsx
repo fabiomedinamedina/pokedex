@@ -1,6 +1,6 @@
-import { SimpleWidget } from "@/components";
 import Image from "next/image";
-import { CiCalculator2 } from "react-icons/ci";
+
+import { WidgetsGrid } from "@/components";
 
 
 export const metadata = {
@@ -21,15 +21,7 @@ export default function MainPage() {
         <h1 className="text-3xl hidden">Mi Pokédex</h1>
         <p className="text-xl">Explora tus estadísticas y descubrimientos Pokémon</p>
       </div>
-      <div className="flex flex-col items-center justify-center">
-        <SimpleWidget
-          title="Contador"
-          description="Estado del contador"
-          value={25}
-          link="/dashboard/counter"
-          icon={<CiCalculator2 size={30} />}
-        />
-      </div>
+      <WidgetsGrid />
     </div>
   );
 }

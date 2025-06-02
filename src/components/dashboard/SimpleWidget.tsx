@@ -1,12 +1,11 @@
 import Link from "next/link";
 import { CgEye } from "react-icons/cg";
-import { CiCalculator2 } from "react-icons/ci";
 
 interface Props {
   title: string;
   value: number;
   description: string;
-  link: string;
+  link?: string;
   icon: JSX.Element
 }
 
@@ -28,11 +27,17 @@ export const SimpleWidget = ({ title, value, description, link, icon }: Props) =
         <div className="flex flex-col items-center justify-center">
           <p className="text-xs font-normal text-gray-400">{description}</p>
         </div>
-        <div className="flex flex-row gap-1 items-center justify-center">
-          <Link href={`${link}`}>
-            <CgEye size={20} className="text-gray-400 hover:text-yellow-normal transition ease-linear duration-200" />
-          </Link>
-        </div>
+        {
+          link && (
+            <div className="flex flex-row gap-1 items-center justify-center">
+
+
+              <Link href={`${link}`}>
+                <CgEye size={20} className="text-gray-400 hover:text-yellow-normal transition ease-linear duration-200" />
+              </Link>
+            </div>
+          )
+        }
       </div>
     </div>
   )
