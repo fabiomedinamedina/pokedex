@@ -1,5 +1,6 @@
 'use client' // Error components must be Client Components
 
+import { StatusDisplay } from '@/components'
 import Image from 'next/image'
 import { useEffect } from 'react'
 
@@ -14,17 +15,19 @@ export default function Error({ error, reset }: {
 
   return (
     <div className="w-full h-screen flex flex-col items-center justify-center">
-      <Image
-        alt='Error 500 Icon'
-        src="/error-500-icon.svg"
-        width={300}
-        height={100}
+      <StatusDisplay
+        icon={
+          <Image
+            alt='Error 500 Icon'
+            src="/error-500-icon.svg"
+            width={300}
+            height={100}
+          />
+        }
+        title='Error de servidor'
+        description='Oooops! han ocurrido errores en el servidor.'
+        error={error.message}
       />
-      <div className="flex flex-col items-center justify-center">
-        <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-600 mt-2">Error de servidor</p>
-        <p className="md:text-lg xl:text-xl text-gray-500">Oooops! han ocurrido errores en el servidor.</p>
-        <p className="text-sm text-gray-500">&quot;{error.message}&quot;</p>
-      </div>
     </div>
   )
 }
