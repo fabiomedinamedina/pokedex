@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Prompt } from "next/font/google";
 import "./globals.css";
-import { Providers } from "@/store/providers";
+import { Providers } from "@/store/Providers";
 
 const prompt = Prompt({
   weight: ["400", "500", "600", "700", "800"],
