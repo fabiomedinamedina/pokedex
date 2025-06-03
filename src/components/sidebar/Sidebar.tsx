@@ -38,8 +38,8 @@ export const Sidebar = () => {
       <div id="logo" className="my-4 px-6 pt-2">
         <Image
           alt='Logo Pokédex'
-          width={230}
-          height={52}
+          width={280}
+          height={64}
           src="/logo-pokedex.svg"
         />
         <p className="text-white text-sm">App Course NextJS</p>
