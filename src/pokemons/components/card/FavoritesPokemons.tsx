@@ -18,8 +18,10 @@ const getPokemons = (favorites: SimplePokemon[]): Promise<Pokemon[]> => {
 }
 
 export const FavoritesPokemons = () => {
-  const favoritePokemons = useAppSelector(state => state.pokemons);
+  const favoritePokemons = useAppSelector(state => state.pokemons.favorites);
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+
+
 
   useEffect(() => {
     getPokemons(Object.values(favoritePokemons))
@@ -35,10 +37,10 @@ export const FavoritesPokemons = () => {
             <StatusDisplay
               icon={
                 <Image
-                  alt='Error 500 Icon'
+                  alt='Icono de favoritos no agregados'
                   src="/no-favorites-icon.svg"
                   width={300}
-                  height={100}
+                  height={244}
                 />
               }
               title='No tienes favoritos aún'
