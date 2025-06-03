@@ -6,6 +6,8 @@ interface PokemonsFavoriteState {
 }
 
 const getInitialState = (): PokemonsFavoriteState => {
+  if (typeof localStorage === 'undefined') return {};
+
   const favorites = JSON.parse(localStorage.getItem('favorites-pokemons') ?? '{}');
   return favorites;
 }
