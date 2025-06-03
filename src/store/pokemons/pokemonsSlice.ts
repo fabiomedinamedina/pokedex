@@ -5,11 +5,13 @@ interface PokemonsFavoriteState {
   [key: number]: SimplePokemon,
 }
 
+const getInitialState = (): PokemonsFavoriteState => {
+  const favorites = JSON.parse(localStorage.getItem('favorites-pokemons') ?? '{}');
+  return favorites;
+}
+
 const initialState: PokemonsFavoriteState = {
-  1: { id: 1, name: 'bulbasaur' },
-  6: { id: 6, name: 'charizard' },
-  8: { id: 8, name: 'wartortle' },
-  3: { id: 3, name: 'venusaur' },
+  ...getInitialState(),
 };
 
 export const pokemonsSlice = createSlice({
@@ -25,8 +27,10 @@ export const pokemonsSlice = createSlice({
         delete state[id];
         return;
       }
-
       state[id] = action.payload;
+
+      //TODO: No se debe hacer en Redux debido a que Redux no debe tener efectos secundarios y deben ser funciones puras que no deben salir al exterior ni ser asincronas.
+      // localStorage.setItem('favorites-pokemons', JSON.stringify(state));
 
     }
   }
